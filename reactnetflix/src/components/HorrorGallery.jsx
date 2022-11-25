@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Carousel, Row } from "react-bootstrap";
+import { Alert, Carousel, Row } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 class HorrorGallery extends Component {
@@ -15,9 +15,10 @@ class HorrorGallery extends Component {
         `http://www.omdbapi.com/?apikey=${APIKey}&s=nightmare%20on%20elm%20street`
       );
       if (response.ok) {
-        let movies = await response.json();
+        let data = await response.json();
+        console.log(data);
+        let movies = data.Search;
         console.log(movies);
-        console.log(this.state.library);
         this.setState({
           library: movies,
         });
@@ -41,19 +42,35 @@ class HorrorGallery extends Component {
         <Carousel>
           <Carousel.Item>
             <Row>
-              {this.state.library.map((movie) => {
+              {this.state.library.slice(0, 4).map((movie) => {
                 return (
                   <SingleMovie
+                    key={movie.imdbID}
                     src={movie.Poster}
                     text={movie.Title}
                   ></SingleMovie>
                 );
               })}
-              {this.state.isError}
+              {this.state.isError && (
+                <Alert variant="danger">Uh oh, mistakes were made! =(</Alert>
+              )}
             </Row>
           </Carousel.Item>
           <Carousel.Item>
-            <Row></Row>
+            <Row>
+            {this.state.library.slice(4, 8).map((movie) => {
+                return (
+                  <SingleMovie
+                    key={movie.imdbID}
+                    src={movie.Poster}
+                    text={movie.Title}
+                  ></SingleMovie>
+                );
+              })}
+              {this.state.isError && (
+                <Alert variant="danger">Uh oh, mistakes were made! =(</Alert>
+              )}
+            </Row>
           </Carousel.Item>
         </Carousel>
       </div>

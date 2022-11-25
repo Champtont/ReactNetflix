@@ -4,12 +4,16 @@ import { Col, Card } from "react-bootstrap";
 class SingleMovie extends Component {
   render() {
     return (
-      <Col xs={12} md={4}>
+      <Col xs={12} md={3} key={this.props.key}>
         <Card>
-          <Card.Img variant="top" src={this.props.movie.Poster} />
+          <Card.Img
+            variant="top"
+            src={this.props.src}
+            style={{ height: "450px" }}
+          />
           <Card.Body>
-            <Card.Title text={this.props.movie.Title}>
-              {this.props.movie.Title}
+            <Card.Title className="text-truncate" text={this.props.text}>
+              {this.props.text}
             </Card.Title>
           </Card.Body>
         </Card>
