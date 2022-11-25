@@ -1,10 +1,11 @@
 import { Component } from "react";
-import { Carousel, Row, Alert } from "react-bootstrap";
+import { Carousel, Row, Alert, Spinner } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 class ComedyGallery extends Component {
   state = {
     library: [],
+    isLoading: true,
     isError: false,
   };
 
@@ -21,8 +22,8 @@ class ComedyGallery extends Component {
         console.log(movies);
         this.setState({
           library: movies,
+          isLoading: false,
         });
-        console.log(this.state.library);
       } else {
         console.log("error fetching the movies :(");
       }
@@ -37,11 +38,16 @@ class ComedyGallery extends Component {
   render() {
     return (
       <div className="m-2">
-        <h5 className="text-left text-light mt-2 mb-2">Comedy</h5>
+        <h5 className="text-left text-light mt-2 mb-2">
+          Pirates of the Caribbean
+        </h5>
+        {this.state.isLoading && (
+          <Spinner animation="border" variant="danger" />
+        )}
         <Carousel>
           <Carousel.Item>
             <Row>
-              {this.state.library.slice(0, 4).map((movie) => {
+              {this.state.library.slice(0, 6).map((movie) => {
                 return (
                   <SingleMovie
                     key={movie.imdbID}
@@ -57,7 +63,7 @@ class ComedyGallery extends Component {
           </Carousel.Item>
           <Carousel.Item>
             <Row>
-              {this.state.library.slice(4, 8).map((movie) => {
+              {this.state.library.slice(1, 7).map((movie) => {
                 return (
                   <SingleMovie
                     key={movie.imdbID}
