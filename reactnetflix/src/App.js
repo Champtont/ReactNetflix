@@ -6,6 +6,8 @@ import MyFooter from "./components/MyFooter";
 import { Container } from "react-bootstrap";
 import GenreDetails from "./components/GenreDetails";
 import HorrorGallery from "./components/HorrorGallery";
+import ActionGallery from "./components/ActionGallery";
+import ComedyGallery from "./components/ComedyGallery";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <MyNav></MyNav>
       <GenreDetails></GenreDetails>
       <HorrorGallery></HorrorGallery>
+      <ActionGallery></ActionGallery>
+      <ComedyGallery></ComedyGallery>
       <MyFooter></MyFooter>
     </div>
   );
