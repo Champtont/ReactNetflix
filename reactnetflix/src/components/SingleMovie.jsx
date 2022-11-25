@@ -11,11 +11,6 @@ class SingleMovie extends Component {
             src={this.props.src}
             style={{ height: "450px" }}
           />
-          <Card.Body>
-            <Card.Title className="text-truncate" text={this.props.text}>
-              {this.props.text}
-            </Card.Title>
-          </Card.Body>
         </Card>
       </Col>
     );
