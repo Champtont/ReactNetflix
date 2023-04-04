@@ -13,7 +13,7 @@ class HorrorGallery extends Component {
     const APIKey = "eeb1760a";
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=${APIKey}&s=nightmare%20on%20elm%20street`
+        `https://www.omdbapi.com/?apikey=${APIKey}&s=nightmare%20on%20elm%20street`
       );
       if (response.ok) {
         let data = await response.json();

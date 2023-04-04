@@ -13,7 +13,7 @@ class ComedyGallery extends Component {
     const APIKey = "eeb1760a";
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=${APIKey}&s=pirates%20of%20the%20caribbean`
+        `https://www.omdbapi.com/?apikey=${APIKey}&s=pirates%20of%20the%20caribbean`
       );
       if (response.ok) {
         let data = await response.json();

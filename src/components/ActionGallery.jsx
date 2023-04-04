@@ -13,7 +13,7 @@ class ActionGallery extends Component {
     const APIKey = "eeb1760a";
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=${APIKey}&s=alien`
+        `https://www.omdbapi.com/?apikey=${APIKey}&s=alien`
       );
       if (response.ok) {
         let data = await response.json();
